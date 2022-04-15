@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <header>JS30 Day1 Drum Kit</header>
     <div class="keys">
       <div
         class="button"
@@ -12,6 +13,7 @@
         <div class="button_sound">{{ key.sound }}</div>
       </div>
     </div>
+    <footer>Chaco Wang</footer>
   </div>
 </template>
 
@@ -118,22 +120,53 @@ export default {
 </script>
 
 <style>
-html {
-  font-size: 10px;
-  background: url("./assets/background.jpg") bottom center;
-  background-size: cover;
-}
-
 body,
 html {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
 }
+html {
+  font-size: 10px;
+  background: url("./assets/background.jpg") bottom center;
+  background-size: cover;
+}
+#app {
+  width: 100vw;
+  height: 100vh;
+}
+
+header {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3.5rem;
+  font-family: "Square Peg", cursive;
+  letter-spacing: 1rem;
+  background-color: rgba(200, 200, 200, 0.8);
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 2rem;
+  position: fixed;
+  bottom: 0;
+  font-size: 1rem;
+  font-weight: 200;
+  letter-spacing: 2px;
+  color: #fff;
+  background-color: rgba(46, 43, 43, 0.7);
+}
 .keys {
+  width: 100%;
+  height: calc(100% - 100px - 2rem);
   display: flex;
   flex: 1;
-  min-height: 100vh;
   align-items: center;
   justify-content: center;
 }

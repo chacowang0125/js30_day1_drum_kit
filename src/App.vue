@@ -104,9 +104,15 @@ export default {
       if (!key) {
         return;
       }
-      const audio = new Audio(key.soundSrc);
-      audio.play();
       key.isPlaying = true;
+      const audio = new Audio(key.soundSrc);
+      audio.currentTime = 0;
+      audio.play();
+
+      //音訊播放結束時移除class
+      audio.onended = function () {
+        key.isPlaying = false;
+      };
     },
     removeTransition(e, key) {
       if (e.propertyName !== "transform") return;
@@ -128,7 +134,8 @@ html {
 }
 html {
   font-size: 10px;
-  background: url("./assets/background.jpg") bottom center;
+  background: url("./assets/background.jpg") bottom center,
+    linear-gradient(#ffc600, 10%, #193549);
   background-size: cover;
 }
 #app {
@@ -182,7 +189,6 @@ footer {
   color: white;
   background: rgba(0, 0, 0, 0.4);
   text-shadow: 0 0 0.5rem black;
-  cursor: pointer;
 }
 .button_keyName {
   display: block;
